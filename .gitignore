@@ -1,3 +1,13 @@
+#custom
+node_modules
+build
+.env
+dist
+.vscode
+
+uploads/*
+!uploads/.gitkeep
+
 # Logs
 logs
 *.log
