@@ -1,7 +1,7 @@
 import { appDataSource } from '@shared/typeorm';
 import User from '../entities/User';
 
-export const ProductRepository = appDataSource.getRepository(User).extend({
+export const UsersRepository = appDataSource.getRepository(User).extend({
 
   async findByName(name: string): Promise<User | null> {
 
