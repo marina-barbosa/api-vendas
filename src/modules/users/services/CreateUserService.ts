@@ -1,6 +1,7 @@
 import AppError from "@shared/errors/AppError";
 import { UsersRepository } from "../typeorm/repositories/UsersRepository";
 import User from "../typeorm/entities/User";
+import { hash } from "bcrypt";
 
 interface InterfaceRequest {
   name: string;
@@ -18,11 +19,13 @@ class CreateUserService {
     if (emailExists) {
       throw new AppError('Email address already used');
     }
+    const hashedPassword = await hash(password, 8);
 
     const user = usersRepository.create({
       name,
       email,
-      password,
+      password: hashedPassword,
+      avatar: 'default_avatar.jpg'
     });
 
     await usersRepository.save(user);
