@@ -17,15 +17,16 @@ server.use(routes);
 
 server.use((error: Error, request: Request, response: Response, next: NextFunction) => {
   if (error instanceof AppError) {
+    console.log('App' + error);
     return response.status(error.statusCode).json({
       status: 'error',
       message: error.message,
     });
   }
-
+  console.log('(AppError 500) ' + error);
   return response.status(500).json({
     status: 'error',
-    message: 'Erro interno do servidor.'
+    message: 'Erro interno do servidor!!'
   });
 });
 
