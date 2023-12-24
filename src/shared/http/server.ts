@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 import cors from 'cors';
-//import { errors } from 'celebrate';
+import { errors } from 'celebrate';
 import routes from './routes/routes';
 import express, { NextFunction, Request, Response } from 'express';
 import AppError from '../errors/AppError';
@@ -30,7 +30,7 @@ server.use((error: Error, request: Request, response: Response, next: NextFuncti
   });
 });
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 3334;
 
 const httpServer = server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}/`);
