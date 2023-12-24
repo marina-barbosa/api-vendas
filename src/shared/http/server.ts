@@ -1,10 +1,12 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 import cors from 'cors';
+//import { errors } from 'celebrate';
 import routes from './routes/routes';
 import express, { NextFunction, Request, Response } from 'express';
 import AppError from '../errors/AppError';
 import '@shared/typeorm/index';
+
 
 const server = express();
 
