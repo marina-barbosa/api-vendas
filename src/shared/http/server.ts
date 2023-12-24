@@ -6,13 +6,14 @@ import routes from './routes/routes';
 import express, { NextFunction, Request, Response } from 'express';
 import AppError from '../errors/AppError';
 import '@shared/typeorm/index';
+import uploadConfig from '@config/upload';
 
 
 const server = express();
 
 server.use(cors());
 server.use(express.json());
-
+server.use('/files', express.static(uploadConfig.directory));
 server.use(routes);
 
 server.use((error: Error, request: Request, response: Response, next: NextFunction) => {
