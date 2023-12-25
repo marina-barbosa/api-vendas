@@ -11,7 +11,7 @@ interface InterfaceTemplateVariable {
 }
 
 interface InterfaceParseMailTemplate {
-  template: string;
+  file: string;
   variables: InterfaceTemplateVariable;
 }
 
