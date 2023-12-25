@@ -25,7 +25,7 @@ class CreateUserService {
       name,
       email,
       password: hashedPassword,
-      avatar: 'default_avatar.jpg'
+      // avatar: 'default_avatar.jpg'
     });
 
     await usersRepository.save(user);
