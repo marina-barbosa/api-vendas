@@ -16,6 +16,8 @@ server.use(express.json());
 server.use('/files', express.static(uploadConfig.directory));
 server.use(routes);
 
+server.use(errors());
+
 server.use((error: Error, request: Request, response: Response, next: NextFunction) => {
   if (error instanceof AppError) {
     console.log('App' + error);
