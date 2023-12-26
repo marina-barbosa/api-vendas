@@ -13,7 +13,7 @@ interface InterfaceRequest {
   products: InterfaceProduct[];
 }
 
-export const ordersRepository = appDataSource.getRepository(Order).extend({
+export const OrdersRepository = appDataSource.getRepository(Order).extend({
 
   async findById(id: string): Promise<Order | null> {
 
