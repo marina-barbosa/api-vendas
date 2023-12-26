@@ -1,6 +1,6 @@
 import { CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import Customer from '@modules/customers/typeorm/entities/Customer';
 import OrdersProducts from './OrdersProducts';
+import Customer from '../../../customers/typeorm/entities/Customer';
 
 @Entity('orders')
 class Order {

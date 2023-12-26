@@ -7,7 +7,8 @@
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
     "lint": "eslint . --ext .ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js migration:create",
-    "typeorm-run": "ts-node-dev ./node_modules/typeorm/cli.js migration:run -- -d ./src/shared/typeorm"
+    "typeorm-run": "ts-node-dev ./node_modules/typeorm/cli.js migration:run -- -d ./src/shared/typeorm",
+    "typeorm-revert": "ts-node-dev ./node_modules/typeorm/cli.js migration:revert -- -d ./src/shared/typeorm"
   },
   "keywords": [],
   "author": "",
