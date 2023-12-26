@@ -1,4 +1,4 @@
-import 'reflect-metadata';
+import 'reflect-metadata'; //essa importação deve ser a primeira sempre
 import 'dotenv/config';
 import cors from 'cors';
 import { errors } from 'celebrate';
@@ -7,9 +7,12 @@ import express, { NextFunction, Request, Response } from 'express';
 import AppError from '../errors/AppError';
 import '@shared/typeorm/index';
 import uploadConfig from '@config/upload';
+//import { pagination } from 'typeorm-pagination'
 
 
 const server = express();
+
+//server.use(pagination);
 
 server.use(cors());
 server.use(express.json());
