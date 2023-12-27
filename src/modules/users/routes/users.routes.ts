@@ -33,4 +33,39 @@ usersRouter.patch(
   usersAvatarController.update,
 );
 
+usersRouter.get(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    }
+  }),
+  usersController.show
+);
+
+usersRouter.put('/:id',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      email: Joi.string().required().email(),
+      password: Joi.string().required()
+    }
+  }),
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    }
+  }),
+  usersController.update
+);
+
+usersRouter.delete('/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    }
+  }),
+  usersController.delete
+);
+
 export default usersRouter;
