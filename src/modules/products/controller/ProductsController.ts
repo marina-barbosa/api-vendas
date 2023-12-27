@@ -40,9 +40,21 @@ export default class ProductsController {
 
     const updateProduct = new UpdateProductService();
 
-    const product = await updateProduct.execute({ id, name, price, quantity });
+    try {
+      const product = await updateProduct.execute({ id, name, price, quantity });
 
-    return response.json(product);
+      return response.json(product);
+
+    } catch (error: any) {
+      console.log(error);
+      if (error instanceof Error) {
+        const msg = error.message;
+        return response.json(msg);
+      } else {
+        return response.json("Erro desconhecido");
+      }
+    }
+
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
