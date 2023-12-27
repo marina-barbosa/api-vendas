@@ -1,5 +1,6 @@
 import 'reflect-metadata'; //essa importação deve ser a primeira sempre
 import 'dotenv/config';
+import 'express-async-errors';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import routes from './routes/routes';
@@ -8,14 +9,18 @@ import AppError from '../errors/AppError';
 import '@shared/typeorm/index';
 import uploadConfig from '@config/upload';
 //import { pagination } from 'typeorm-pagination'
+import rateLimiter from './middlewares/rateLimiter';
 
 
 const server = express();
 
-//server.use(pagination);
-
 server.use(cors());
 server.use(express.json());
+
+server.use(rateLimiter);
+
+//server.use(pagination);
+
 server.use('/files', express.static(uploadConfig.directory));
 server.use(routes);
 
