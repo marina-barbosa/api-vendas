@@ -1,0 +1,37 @@
+### Variables
+@api_url = http://localhost:3333
+@jwtToken =
+
+### Atualizar avatar do usuário
+PATCH {{api_url}}/users/avatar HTTP/1.1
+Authorization: Bearer {seu_token_jwt}
+Content-Type: multipart/form-data
+
+### Listar todos os produtos
+GET {{api_url}}/products HTTP/1.1
+
+### Mostrar um produto específico
+GET {{api_url}}/products/{id} HTTP/1.1
+
+### Criar um novo produto
+POST {{api_url}}/products HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "{nome}",
+  "price": "{preço}",
+  "quantity": "{quantidade}"
+}
+
+### Atualizar um produto existente
+PUT {{api_url}}/products/{id} HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "{nome}",
+  "price": "{preço}",
+  "quantity": "{quantidade}"
+}
+
+### Deletar um produto
+DELETE {{api_url}}/products/{id} HTTP/1.1
