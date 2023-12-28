@@ -40,6 +40,7 @@ usersRouter.get(
       id: Joi.string().uuid().required(),
     }
   }),
+  isAuthenticated,
   usersController.show
 );
 
@@ -56,6 +57,7 @@ usersRouter.put('/:id',
       id: Joi.string().uuid().required(),
     }
   }),
+  isAuthenticated,
   usersController.update
 );
 
@@ -65,6 +67,7 @@ usersRouter.delete('/:id',
       id: Joi.string().uuid().required(),
     }
   }),
+  isAuthenticated,
   usersController.delete
 );
 

@@ -1,10 +1,8 @@
 import 'reflect-metadata'; //essa importação deve ser a primeira sempre
 import 'dotenv/config';
-import 'express-async-errors';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import routes from './routes/routes';
-import AppError from '../errors/AppError';
 import '@shared/typeorm/index';
 import uploadConfig from '@config/upload';
 import rateLimiter from './middlewares/rateLimiter';

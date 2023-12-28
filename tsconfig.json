@@ -28,6 +28,10 @@
         "src/shared/*"
       ],
     },
+    "types": [
+      "ioredis",
+      "node",
+    ],
     "typeRoots": [
       "@types",
       "./node_modules/@types"
