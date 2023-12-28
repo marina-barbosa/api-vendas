@@ -20,6 +20,11 @@ export default function isAuthenticated(request: Request, response: Response, ne
   const token = authHeader.split(' ')[1];
 
   try {
+
+    if (!authConfig.jwt.secret) {
+      throw new AppError('JWT secret is not defined in the configuration');
+    }
+
     const decodedToken = verify(token, authConfig.jwt.secret);
 
     const { sub } = decodedToken as TokenPayload;
