@@ -4,12 +4,14 @@ import 'express-async-errors';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import routes from './routes/routes';
-import express, { NextFunction, Request, Response } from 'express';
 import AppError from '../errors/AppError';
 import '@shared/typeorm/index';
 import uploadConfig from '@config/upload';
-//import { pagination } from 'typeorm-pagination'
 import rateLimiter from './middlewares/rateLimiter';
+import express from 'express';
+import 'express-async-errors';
+import AppAsyncError from '@shared/errors/AppAsyncError';
+//import { pagination } from 'typeorm-pagination'
 
 
 const server = express();
@@ -24,22 +26,9 @@ server.use(rateLimiter);
 server.use('/files', express.static(uploadConfig.directory));
 server.use(routes);
 
+// esse deve vir sempre depois das rotas
 server.use(errors());
-
-server.use((error: Error, request: Request, response: Response, next: NextFunction) => {
-  if (error instanceof AppError) {
-    console.log('App' + error);
-    return response.status(error.statusCode).json({
-      status: 'error',
-      message: error.message,
-    });
-  }
-  console.log('(AppError 500) ' + error);
-  return response.status(500).json({
-    status: 'error',
-    message: 'Erro interno do servidor!!'
-  });
-});
+server.use(AppAsyncError);
 
 const port = process.env.PORT || 3334;
 
