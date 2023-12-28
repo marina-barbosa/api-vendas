@@ -23,13 +23,17 @@ class CreateSessionsService {
     const user = await usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new AppError('Incorrect email/password combination.', 401);
+      throw new AppError('Incorrect email/password combination', 401);
     }
 
     const passwordConfirmed = await compare(password, user.password);
 
     if (!passwordConfirmed) {
-      throw new AppError('Incorrect email/password combination.', 401);
+      throw new AppError('Incorrect email/password combination', 401);
+    }
+
+    if (!authConfig.jwt.secret) {
+      throw new AppError('JWT secret is not defined in the configuration');
     }
 
     const token = sign({}, authConfig.jwt.secret, { subject: user.id, expiresIn: authConfig.jwt.expiresIn });
