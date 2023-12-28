@@ -2,6 +2,7 @@ import AppError from "@shared/errors/AppError";
 import { UsersRepository } from "../typeorm/repositories/UsersRepository";
 import User from "../typeorm/entities/User";
 import { hash } from "bcrypt";
+import RedisCache from "@shared/cache/RedisCache";
 
 interface InterfaceRequest {
   name: string;
@@ -27,6 +28,10 @@ class CreateUserService {
       password: hashedPassword,
       // avatar: 'default_avatar.jpg'
     });
+
+    const redisCache = new RedisCache();
+
+    await redisCache.invalidate('api-vendas-USER_LIST');
 
     await usersRepository.save(user);
 
