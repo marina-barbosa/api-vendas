@@ -125,7 +125,7 @@ PUT /products/:id: Atualiza um produto existente.
 
 DELETE /products/:id: Remove um produto.
 
-## Pedidos (faltando nas rotas originais)
+## Pedidos 
 
 GET /orders: Lista todos os pedidos.
 
@@ -137,7 +137,8 @@ PUT /orders/:id: Atualiza um pedido existente.
 
 DELETE /orders/:id: Remove um pedido.
 
-## Clientes (faltando nas rotas originais)
+## Clientes 
+
 GET /customers: Lista todos os clientes.
 
 GET /customers/:id: Busca um cliente pelo ID.
