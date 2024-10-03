@@ -21,39 +21,7 @@ Esta API gerencia vendas, usuários, produtos, pedidos e clientes, utilizando Ty
 - Node.js (>= 14.x)
 - PostgreSQL (>= 12.x)
 - Redis
-  
-## Instalação
-- Clone o repositório:
 
-```
-git clone https://github.com/seu-usuario/api-vendas.git
-cd api-vendas
-```
-
-- Instale as dependências:
-  
-```
-npm install
-```
-
-- Configure as variáveis de ambiente no arquivo .env:
-
-```
-# env
-
-PORT=3334
-DATABASE_URL=postgres://usuario:senha@localhost:5432/apivendas
-REDIS_HOST=localhost
-REDIS_PORT=6379
-REDIS_PASS=sua_senha
-JWT_SECRET=sua_chave_secreta
-```
-
-- Inicie o servidor:
-
-```
-npm run dev
-```
 
 # Entidades
 
@@ -149,20 +117,37 @@ PUT /customers/:id: Atualiza as informações de um cliente.
 
 DELETE /customers/:id: Remove um cliente.
 
-# Como Executar
-- Clone o repositório e acesse o diretório do projeto:
+## Como Executar
+- Clone o repositório:
 
-git clone .....
-
-cd ....
+```
+git clone git@github.com:marina-barbosa/api-vendas.git
+cd api-vendas
+```
 
 - Instale as dependências:
-
+  
+```
 npm install
+```
 
-- Defina as variáveis de ambiente no arquivo .env.
-- Execute a aplicação:
+- Configure as variáveis de ambiente no arquivo .env:
 
+```
+# env
+
+PORT=3334
+DATABASE_URL=postgres://usuario:senha@localhost:5432/apivendas
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASS=sua_senha
+JWT_SECRET=sua_chave_secreta
+```
+
+- Inicie o servidor:
+
+```
 npm run dev
+```
 
 A API estará disponível em http://localhost:3333.
