@@ -152,9 +152,9 @@ DELETE /customers/:id: Remove um cliente.
 # Como Executar
 - Clone o repositório e acesse o diretório do projeto:
 
-git clone <url-do-repositório>
+git clone .....
 
-cd <pasta-do-projeto>
+cd ....
 
 - Instale as dependências:
 
